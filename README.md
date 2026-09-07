@@ -1,2 +1,2 @@
 # beginning-bioinformatics
-Beginning bioinformatics course code
+Olivia Chock + 1002184622 + BIOL5340-001
