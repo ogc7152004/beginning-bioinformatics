@@ -1,0 +1,18 @@
+Project Overview: This project aims to assemble, annotat, and compare the genomes of two sexually reproducing whiptail lizards, Aspidoscelis gularis and Aspidoscelis sexlineatus. I plan to compare genomic characteristics and gene organization between the two species using synteny analysis.
+
+Pipeline:
+1. Meryl – Count k-mers from sequencing reads.
+2. GenomeScope 2.0 – Estimate genome size, heterozygosity, and repetitive sequence content.
+3. hifiasm – Assemble genomes from PacBio HiFi reads.
+4. SeqKit – Calculate genome assembly statistics.
+5.Kraken2 – Screen assemblies for potential contamination.
+6. BUSCO – Evaluate genome completeness.
+7. Earl Grey – Identify and annotate repetitive elements.
+8. Tiberius – Predict protein-coding genes.
+9. GENESPACE – Compare gene organization and identify conserved genomic regions.
+
+Repository Contents:
+README.md - project overview
+ai_usage.md - documenation of AI use
+scripts/ - commands and scripts used for analyses
+
