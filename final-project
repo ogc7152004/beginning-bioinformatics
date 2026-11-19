@@ -1,1 +1,43 @@
+Step 1: Meryl v1.4.2
+Download: wget https://github.com/marbl/meryl/releases/download/
+v1.4.2/meryl-1.4.2.Darwin-arm64.tar.xz
+tar -xJf meryl-1.4.2.Darwin-arm64.tar.x
+kmer count: meryl-1.4.2 % meryl count k=21 threads=4 memory=8
+\
+ output gularis.meryl \
+ /Volumes/Scratch/Aspidoscelis_gularis_sexlineatus/
+MKF01122.hifi_reads.fastq
+Histogram: meryl histogram sexlineatus.meryl > sexlineatus.k21.hist
+
+Step 2: HiFiasm26.1.1
+Download: git clone https://github.com/chhylp123/hifiasm
+cd hifiasm && make
+HifFiasm: hifiasm -o gularis.asm -t 20 /Volumes/Scratch/
+Aspidoscelis_gularis_sexlineatus/MKF01120.hifi_reads.fastq
+
+Step 3: Genomescope2.0
+Download: git clone https://github.com/tbenavi1/genomescope2.0.git
+cd genomescope2.0/
+genomescope2.0 % Rscript install
+Run Genomescope:
+/Volumes/Scratch/olivia/meryl/genomescope2.0/genomescope.R \
+-i /Volumes/Scratch/olivia/meryl/sexlineatus.k21.hist \
+-o output_dir \
+-k 21
+
+Step 4: Seqkit Statistics
+Get stats: seqkit stats -a /Volumes/Scratch/olivia/sexlineatus/
+hifi_sexlineatus/primary/sexlineatushifiasm.fa
+
+Step 5: Kraken
+raken2 \
+ --db /Users/pantai/Desktop/databases/kraken2 \
+ --threads 8 \
+ --report /Volumes/Scratch/olivia/sexlineatus/hifi_sexlineatus/
+primary/sexlineatushifiasm.kraken2.report \
+ --output /Volumes/Scratch/olivia/sexlineatus/hifi_sexlineatus/
+primary/sexlineatushifiasm.kraken2.out \
+ /Volumes/Scratch/olivia/sexlineatus/hifi_sexlineatus/primary/
+sexlineatushifiasm.fa
+
 
